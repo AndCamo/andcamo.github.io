@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+body {
+    background-color: #202020;
+    font-size: 16px;
+    color: whitesmoke;
+    font-family: "IBM Plex Mono", monospace;
+    /*  font-family: "IBM Plex Sans", sans-serif;*/
+    font-weight: 400;
+}
+
+.logo {
+    width: 20vw;        /* di base prende il 20% della larghezza dello schermo */
+    max-width: 100px;   /* limite massimo su desktop */
+    min-width: 80px;    /* limite minimo su mobile */
+    height: auto;       /* mantiene le proporzioni */
+    object-fit: contain;
+}
+
+.header-icon{
+    color: #e63946;
+}
+
+/* Su schermi piccoli (smartphone) */
+@media (max-width: 600px) {
+    .logo {
+        width: 35vw;    /* più grande rispetto al default */
+    }
+}
+
+/* Su schermi grandi (desktop) */
+@media (min-width: 1200px) {
+    .logo {
+        width: 15vw;    /* leggermente più piccolo rispetto al default */
+    }
+}
+
+#main-container{
+    margin-top: 5vh;
+}
+
+@media (min-width: 1024px) {
+  #main-container {
+    width: 50%;  
+  }
+}
+
+.card-title {
+    font-weight: 600;
+    font-size: large;
+}
+
+.card-body {
+    border-bottom: solid;
+    border-width: 4px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer; 
+}
+
+.card-body:hover {
+    transform: translateY(-10px);
+}
+
+.table-row {
+    margin-bottom: 8px;
+    border-bottom: grey 2px dashed;
+}
+
+.table-key {
+    font-weight: 400;
+    font-style: italic;
+    opacity: 0.8;
+}
+
+.project-image{
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+.color-1 { color: #e63946; }
+.color-2 { color: #83c5be; }
+.color-3 { color: #ffc300; }
+
+#ascii-container {
+    font-size: 14px;
+    line-height: 14px;
+    white-space: pre; 
+    font-weight: bold;
+    text-shadow: 0 0 5px var(--dim-color);
+    min-width: fit-content;
+    min-height: fit-content;
+    display: flex;
+    color: beige;
+    align-items: center;
+    justify-content: center;
+}

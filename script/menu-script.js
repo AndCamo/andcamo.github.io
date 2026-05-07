@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
     Array.from(cards).forEach((card, index) => {
         // color initialization
         const colorKey = `color${(index % 3) + 1}`;
+        document.getElementById('close-icon-' + ((index % 3) + 1)).style.color = colorsMap[colorKey];
         card.style.borderColor = colorsMap[colorKey];
         const icon = card.getElementsByClassName("card-icon")[0];
         if (icon) icon.style.color = colorsMap[colorKey];
@@ -20,47 +21,50 @@ document.addEventListener("DOMContentLoaded", () => {
         // store original text to restore it later
         card.dataset.originalText = textElement.innerText;
 
-        // Trova l'elemento con data-bs-toggle invece della card intera
-        const toggleElement = card.querySelector('[data-bs-toggle="collapse"]');
+        // Trova tutti gli elementi della card che aprono/chiudono (header e icona di chiusura)
+        const toggleElements = card.querySelectorAll('[data-bs-toggle="collapse"]');
         
-        if (toggleElement) {
+        toggleElements.forEach(toggleElement => {
             toggleElement.addEventListener("click", () => {
-                const isExpanded = toggleElement.getAttribute("aria-expanded") === "true";
+                setTimeout(() => {
+                    const toggleHeader = card.querySelector('.row[data-bs-toggle="collapse"]');
+                    const isExpanded = toggleHeader.getAttribute("aria-expanded") === "true";
 
-                if (isExpanded) {
-                    textElement.style.color = colorsMap[colorKey];
+                    if (isExpanded) {
+                        textElement.style.color = colorsMap[colorKey];
 
-                    const originalText = card.dataset.originalText;
-                    let position = 0;
-                    let direction = 1;
+                        const originalText = card.dataset.originalText;
+                        let position = 0;
+                        let direction = 1;
 
-                    const runAnimation = () => {
-                        const letters = originalText.split("");
-                        letters[position] = "_";
-                        textElement.innerText = letters.join("");
+                        const runAnimation = () => {
+                            const letters = originalText.split("");
+                            letters[position] = "_";
+                            textElement.innerText = letters.join("");
 
-                        position += direction;
+                            position += direction;
 
-                        if (position >= originalText.length - 1 || position <= 0) {
-                            direction *= -1;
+                            if (position >= originalText.length - 1 || position <= 0) {
+                                direction *= -1;
+                            }
+                        };
+
+                        // prevent multiple intervals
+                        if (card.dataset.intervalId) clearInterval(card.dataset.intervalId);
+                        card.dataset.intervalId = setInterval(runAnimation, 70);
+
+                    } else {
+                        if (card.dataset.intervalId) {
+                            clearInterval(card.dataset.intervalId);
+                            card.dataset.intervalId = null;
                         }
-                    };
-
-                    // prevent multiple intervals
-                    if (card.dataset.intervalId) clearInterval(card.dataset.intervalId);
-                    card.dataset.intervalId = setInterval(runAnimation, 70);
-
-                } else {
-                    if (card.dataset.intervalId) {
-                        clearInterval(card.dataset.intervalId);
-                        card.dataset.intervalId = null;
+                        
+                        // restore original text and color
+                        textElement.style.color = "#ffffff";
+                        textElement.innerText = card.dataset.originalText;
                     }
-                    
-                    // restore original text and color
-                    textElement.style.color = "#ffffff";
-                    textElement.innerText = card.dataset.originalText;
-                }
+                }, 10);
             });
-        }
+        });
     });
 });

@@ -51,8 +51,12 @@ function draw(timestamp) {
   // ASCII sullo sfondo
   if (Math.random() < 0.8) spawnBgChar();
 
+  const styles = getComputedStyle(document.body);
+  const asciiColor = styles.getPropertyValue('--ascii-color').trim();
+  const asciiOpacity = styles.getPropertyValue('--ascii-opacity').trim();
+
   ctx.font = "12px monospace";
-  ctx.fillStyle = "rgba(255,255,255,0.04)";
+  ctx.fillStyle = `rgba(${asciiColor}, ${asciiOpacity})`;
 
   for (let i = bgChars.length - 1; i >= 0; i--) {
     const c = bgChars[i];
@@ -68,7 +72,7 @@ function draw(timestamp) {
     const x = mouseX + Math.cos(angle) * radius;
     const y = mouseY + Math.sin(angle) * radius;
 
-    ctx.fillStyle = "rgba(255, 255, 255, 0.19)";
+    ctx.fillStyle = `rgba(${asciiColor}, ${parseFloat(asciiOpacity) * 4.5})`;
     ctx.fillText(randomChar(), x, y);
   }
 

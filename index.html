@@ -16,7 +16,18 @@
   </head>
   <body>
     <script>
+      // Theme Initialization (Blocking to avoid flicker)
+      if (localStorage.getItem('theme') === 'light') {
+        document.body.classList.add('light-mode');
+      }
+
       $(document).ready(function(){
+        // Theme Toggle Logic
+        $('#theme-toggle').on('click', function() {
+          document.body.classList.toggle('light-mode');
+          localStorage.setItem('theme', document.body.classList.contains('light-mode') ? 'light' : 'dark');
+        });
+
         // Quando la card si apre
         $('#collapseCard1').on('show.bs.collapse', function () {
           $('#card-1').addClass('card-open');
@@ -40,16 +51,19 @@
               </div>
           </div>
           <div class="col-sm-12 col-md-9 d-flex flex-column justify-content-center">
-              <div class="cb-meta">
+              <div class="cb-meta d-flex justify-content-between align-items-center">
                 <div class="terminal-prompt"> </div>
+                <button id="theme-toggle" class="btn btn-sm" style="border: 2px solid var(--border-main); color: var(--text-main); background: var(--bg-container); width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; border-radius: 8px; transition: all 0.3s ease;">
+                  <i class="hn hn-lightbulb" style="font-size: 1.1rem;"></i>
+                </button>
               </div>
-              <h4 class="md-h1 terminal-name" style="margin-bottom: 0.5rem; font-size: 1.5rem; color: #fff;">Andrea Camoia</h4>
+              <h4 class="md-h1 terminal-name" style="margin-bottom: 0.5rem; font-size: 1.5rem; color: var(--text-main);">Andrea Camoia</h4>
                 <p style="text-align:justify; margin-left: 0;">
                   <span style="background-color: #e63946; color: white; padding: 2px 6px; border-radius: 2px;"> I create things with my computer <i class="hn hn-retro-pc-solid inline-icon"></i></span>
                 </p>
           </div>
         </div>
-        
+        <hr class="terminal-hr">
         <div id="home-content-container">
           <div class="terminal-bio">
             <div class="terminal-prompt">whoami</div>
@@ -86,7 +100,7 @@
         </div>
 
 
-
+        <hr class="terminal-hr">
         <div class="row mt-5">
           <div>
             <p style="text-align: center; font-weight: 600;">/-- Skills, Hobbies, Interests (in ASCII :D) --/<p>
@@ -95,8 +109,8 @@
               <div class="col-12"><div id="ascii-container"></div></div>
           </div>
         </div>
-        <!-- Footer Separator -->
-        <hr style="margin-top: 5rem; border: 0; border-top: 1px dashed #333; opacity: 1;">
+        
+        <hr class="terminal-hr">
 
         <!-- Links / Footer -->
         <footer class="terminal-card mb-5 mt-3" style="padding: 10px 0; display: flex; flex-direction: column; align-items: flex-start; background: none; border: none;">
@@ -106,9 +120,9 @@
                   <i class="fa-solid fa-envelope"></i> andreacamoia10@gmail.com
                 </div>
                 <div class="d-flex gap-3" style="opacity: 0.8;">
-                  <a href="https://www.linkedin.com/in/andrea-camoia/" style="color: whitesmoke; font-size: 0.9em; text-decoration: none;" target="_blank"><i class="fa-brands fa-linkedin"></i> linkedin</a>
-                  <a href="https://github.com/AndCamo" style="color: whitesmoke; font-size: 0.9em; text-decoration: none;" target="_blank"><i class="fa-brands fa-github"></i> github</a>
-                  <a href="assets/resources/CV_Camoia.pdf" style="color: whitesmoke; font-size: 0.9em; text-decoration: none;" target="_blank"><i class="fa-solid fa-file-pdf"></i> cv.pdf</a>
+                  <a href="https://www.linkedin.com/in/andrea-camoia/" style="color: var(--text-main); font-size: 0.9em; text-decoration: none;" target="_blank"><i class="fa-brands fa-linkedin"></i> linkedin</a>
+                  <a href="https://github.com/AndCamo" style="color: var(--text-main); font-size: 0.9em; text-decoration: none;" target="_blank"><i class="fa-brands fa-github"></i> github</a>
+                  <a href="assets/resources/CV_Camoia.pdf" style="color: var(--text-main); font-size: 0.9em; text-decoration: none;" target="_blank"><i class="fa-solid fa-file-pdf"></i> cv.pdf</a>
                 </div>
               </div>
           </div>

@@ -15,7 +15,7 @@
 }
 
 .breadcrumb-nav a {
-    color: #888;
+    color: var(--text-dim);
     text-decoration: none;
     transition: color 0.2s;
 }
@@ -30,10 +30,10 @@
     align-items: center;
     gap: 10px;
     padding: 6px 14px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid #333;
+    background: var(--bg-container);
+    border: 1px solid var(--border-main);
     border-radius: 3px;
-    color: #ccc;
+    color: var(--text-main);
     text-decoration: none;
     font-size: 0.85rem;
     font-weight: 500;
@@ -43,19 +43,19 @@
 }
 
 .back-home-btn:hover {
-    background: rgba(255, 255, 255, 0.08);
+    background: var(--highlight-bg);
     border-color: var(--page-color);
     color: var(--page-color);
     transform: translateX(-4px);
 }
 
 .back-home-btn .prompt {
-    color: #888;
+    color: var(--text-dim);
     font-weight: normal;
 }
 
 .back-home-btn .command {
-    color: #fff;
+    color: var(--text-main);
     font-weight: bold;
 }
 
@@ -85,12 +85,12 @@
 }
 
 .md-h2 {
-    color: #eee;
+    color: var(--text-main);
     font-size: 1.4rem;
     margin-top: 2rem;
     margin-bottom: 1rem;
     padding-left: 0;
-    border-bottom: 1px solid #333;
+    border-bottom: 1px solid var(--border-main);
     padding-bottom: 5px;
 }
 
@@ -102,12 +102,12 @@
 
 /* Terminal Card Component */
 .terminal-card-md {
-    background: rgba(26, 26, 26, 0.8);
+    background: var(--card-bg);
     border-left: 3px solid transparent;
     border-image: linear-gradient(to bottom, var(--page-color), var(--page-color-alt)) 1 100%;
-    border-top: 1px solid #333;
-    border-right: 1px solid #333;
-    border-bottom: 1px solid #333;
+    border-top: 1px solid var(--border-main);
+    border-right: 1px solid var(--border-main);
+    border-bottom: 1px solid var(--border-main);
     margin-bottom: 1.5rem;
     position: relative;
     overflow: hidden;
@@ -116,15 +116,15 @@
 
 .terminal-card-md:hover {
     transform: translateX(5px);
-    background: rgba(30, 30, 30, 0.9);
+    background: var(--bg-container);
 }
 
 .card-metadata {
-    background: #222;
+    background: var(--bg-container);
     padding: 8px 15px;
     font-size: 0.85em;
-    color: #888;
-    border-bottom: 1px solid #333;
+    color: var(--text-dim);
+    border-bottom: 1px solid var(--border-main);
     display: flex;
     justify-content: space-between;
 }
@@ -140,7 +140,7 @@
 }
 
 .card-title-md {
-    color: #fff;
+    color: var(--text-main);
     font-weight: bold;
     margin-bottom: 0.5rem;
     display: block;
@@ -148,7 +148,7 @@
 }
 
 .card-body-md {
-    color: #ccc;
+    color: var(--text-dim);
     font-size: 0.95em;
     line-height: 1.6;
 }
@@ -166,28 +166,28 @@
 
 /* Rich Project Card */
 .project-card-md {
-    background: rgba(26, 26, 26, 0.8);
+    background: var(--card-bg);
     border-left: 3px solid transparent;
     border-image: linear-gradient(to bottom, var(--page-color), var(--page-color-alt)) 1 100%;
-    border-top: 1px solid #333;
-    border-right: 1px solid #333;
-    border-bottom: 1px solid #333;
+    border-top: 1px solid var(--border-main);
+    border-right: 1px solid var(--border-main);
+    border-bottom: 1px solid var(--border-main);
     margin-bottom: 2rem;
     transition: transform 0.2s ease;
 }
 
 .project-card-md:hover {
     transform: translateY(-5px);
-    background: rgba(35, 35, 35, 0.9);
+    background: var(--bg-container);
 }
 
 .project-image-container {
     padding: 10px;
-    background: #111;
+    background: var(--bg-main);
     display: flex;
     justify-content: center;
     align-items: center;
-    border-bottom: 1px solid #333;
+    border-bottom: 1px solid var(--border-main);
 }
 
 .project-img-md {
@@ -215,10 +215,10 @@
 
 .project-tag {
     font-size: 0.7em;
-    background: #222;
-    border: 1px solid #444;
+    background: var(--bg-container);
+    border: 1px solid var(--border-main);
     padding: 2px 8px;
-    color: #888;
+    color: var(--text-dim);
 }
 
 .project-link {
@@ -262,10 +262,10 @@
     width: 6px;
 }
 ::-webkit-scrollbar-track {
-    background: #1a1a1a;
+    background: var(--bg-main);
 }
 ::-webkit-scrollbar-thumb {
-    background: #333;
+    background: var(--border-main);
 }
 ::-webkit-scrollbar-thumb:hover {
     background: var(--page-color);

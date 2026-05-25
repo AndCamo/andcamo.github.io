@@ -11,13 +11,20 @@
     <script src="https://kit.fontawesome.com/2f266e86a2.js" crossorigin="anonymous"></script>
     <style>
       :root {
-        --page-color: #ffc300;      /* Main: Lime Green */
-        --page-color-alt: #ffc300;  /* Alt: Yellow */
-        --page-color-bg: rgba(153, 255, 0, 0.15); 
+        --page-color: #f1c400;      /* Brighter Yellow */
+        --page-color-alt: #f39c12;  /* Orange-Yellow */
+        --page-color-bg: rgba(241, 196, 0, 0.15); 
       }
     </style>
   </head>
-  <body>    <canvas id="ascii-glitch"></canvas>
+  <body>
+    <script>
+      if (localStorage.getItem('theme') === 'light') {
+        document.body.classList.add('light-mode');
+      }
+    </script>
+    <!-- Persistent ASCII Effects -->
+    <canvas id="ascii-glitch"></canvas>
     
     <div class="page-container">
       <!-- Back to Home -->

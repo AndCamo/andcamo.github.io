@@ -1,11 +1,37 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+:root {
+    /* DARK THEME (Default) */
+    --bg-main: #202020;
+    --bg-container: #1a1a1a;
+    --text-main: #f5f5f4;
+    --text-dim: #888888;
+    --border-main: #333333;
+    --card-bg: rgba(26, 26, 26, 0.8);
+    --highlight-bg: #333333;
+    --ascii-opacity: 0.04;
+    --ascii-color: 255, 255, 255;
+}
+
+body.light-mode {
+    /* SOLARIZED LIGHT THEME */
+    --bg-main: #fdf6e3;      /* Base crema tipica Solarized */
+    --bg-container: #eee8d5; /* Grigio/Beige chiaro */
+    --text-main: #073642;    /* Blu scuro/Petrolio */
+    --text-dim: #586e75;     /* Grigio fumo */
+    --border-main: #d5c4a1;  /* Bordo sabbia */
+    --card-bg: rgba(238, 232, 213, 0.8);
+    --highlight-bg: #eee8d5;
+    --ascii-opacity: 0.06;
+    --ascii-color: 7, 54, 66; /* Match text color */
+}
+
 body {
-    background-color: #202020;
+    background-color: var(--bg-main);
     font-size: 16px;
-    color: whitesmoke;
+    color: var(--text-main);
     font-family: "IBM Plex Mono", monospace;
-    /*  font-family: "IBM Plex Sans", sans-serif;*/
     font-weight: 400;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 #ascii-glitch {

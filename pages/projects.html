@@ -11,13 +11,18 @@
     <script src="https://kit.fontawesome.com/2f266e86a2.js" crossorigin="anonymous"></script>
     <style>
       :root {
-        --page-color: #a29bfe;      /* Main: Purple */
-        --page-color-alt: #6c5ce7;  /* Alt: Deep Purple/Indigo */
-        --page-color-bg: rgba(162, 155, 254, 0.15);
+        --page-color: #268bd2;      /* Solarized Blue */
+        --page-color-alt: #6c71c4;  /* Solarized Violet */
+        --page-color-bg: rgba(38, 139, 210, 0.15);
       }
     </style>
   </head>
   <body>
+    <script>
+      if (localStorage.getItem('theme') === 'light') {
+        document.body.classList.add('light-mode');
+      }
+    </script>
     <!-- Persistent ASCII Effects -->
     <canvas id="ascii-glitch"></canvas>
     

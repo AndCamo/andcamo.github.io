@@ -172,6 +172,18 @@
     align-items: center;
 }
 
+.nav-item::before {
+    content: ">";
+    margin-right: 10px;
+    color: #555;
+    font-weight: bold;
+    transition: color 0.2s ease;
+}
+
+.nav-item:hover::before {
+    color: currentColor;
+}
+
 .nav-item a {
     text-decoration: none;
     font-weight: 500;
@@ -234,6 +246,19 @@
     margin-right: 5px;
 }
 
-.card-icon{
-    font-size: 1.5rem;
+.terminal-name {
+    position: relative;
+    display: inline-block;
+}
+
+.terminal-name::after {
+    content: "_";
+    margin-left: 5px;
+    color: #e63946;
+    animation: blink 1.2s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
 }

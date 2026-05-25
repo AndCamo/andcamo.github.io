@@ -1,0 +1,223 @@
+#header-container {
+    position: relative;
+    padding: 30px 20px;
+    background: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+#header-container:hover {
+    border-color: #e63946;
+    background: #1e1e1e;
+}
+
+.logo {
+    width: 20vw;        /* di base prende il 20% della larghezza dello schermo */
+    max-width: 100px;   /* limite massimo su desktop */
+    min-width: 80px;    /* limite minimo su mobile */
+    height: auto;       /* mantiene le proporzioni */
+    object-fit: contain;
+}
+
+.cb-meta {
+    font-size: 10px;
+    color: #555;
+    letter-spacing: 0.2em;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+}
+
+.cb-meta span {
+    color: #e63946;
+    margin-right: 4px;
+}
+
+.header-icon{
+    color: #e63946;
+}
+
+/* Su schermi piccoli (smartphone) */
+@media (max-width: 600px) {
+    .logo {
+        width: 35vw;    /* più grande rispetto al default */
+    }
+}
+
+/* Su schermi grandi (desktop) */
+@media (min-width: 1200px) {
+    .logo {
+        width: 15vw;    /* leggermente più piccolo rispetto al default */
+    }
+}
+
+.card-title {
+    font-weight: 600;
+    font-size: large;
+}
+
+.card-body {
+    border-bottom: solid;
+    border-width: 4px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer; 
+}
+
+.card-body:hover {
+    transform: translateY(-10px);
+}
+
+.project-box {
+    background-color: #2a2a2a;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.table-row {
+    margin-bottom: 8px;
+    border-bottom: grey 2px dashed;
+}
+
+.table-key {
+    font-weight: 400;
+    font-style: italic;
+    opacity: 0.8;
+}
+
+.project-image{
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+.color-1 { color: #e63946; }
+.color-2 { color: #83c5be; }
+.color-3 { color: #ffc300; }
+
+/* Footer / Terminal Card */
+.terminal-card {
+    background: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 4px;
+    padding: 20px;
+    transition: all 0.3s ease;
+}
+
+.terminal-card:hover {
+    border-color: #e63946;
+    background: #1e1e1e;
+}
+
+.terminal-card-body a {
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.terminal-card-body a:hover {
+    color: #e63946 !important;
+}
+
+.footer-icon {
+    color: #e63946;
+    margin-right: 8px;
+}
+
+/* Terminal Bio & Navigation */
+#home-content-container {
+    margin-top: 3rem;
+    font-family: 'IBM Plex Mono', monospace;
+}
+
+.terminal-prompt {
+    color: #e63946;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.terminal-prompt::before {
+    content: "[@andcamo ~]$ ";
+}
+
+.terminal-output {
+    margin-left: 1.5rem;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+    color: #ccc;
+}
+
+.nav-section {
+    margin-top: 2rem;
+}
+
+.nav-list {
+    list-style: none;
+    padding-left: 1.5rem;
+}
+
+.nav-item {
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+}
+
+.nav-item a {
+    color: #83c5be;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.nav-item a::after {
+    content: "/";
+    margin-left: 2px;
+    opacity: 0.5;
+}
+
+.nav-item a:hover {
+    color: #e63946;
+    padding-left: 8px;
+}
+
+.nav-item i {
+    font-size: 0.8em;
+    margin-right: 12px;
+    color: #555;
+    transition: color 0.2s ease;
+}
+
+/* Color variations for nav items */
+.nav-edu a { color: #94e51b; } /* Lime Green */
+.nav-edu:hover i { color: #94e51b; }
+
+.nav-proj a { color: #a29bfe; } /* Purple */
+.nav-proj:hover i { color: #a29bfe; }
+
+.nav-pub a { color: #ffc300; } /* Yellow */
+.nav-pub:hover i { color: #ffc300; }
+
+.nav-exp a { color: #83c5be; } /* Teal */
+.nav-exp:hover i { color: #83c5be; }
+
+.nav-item a:hover {
+    filter: brightness(1.2);
+    padding-left: 8px;
+}
+
+.bio-tag {
+    background: #2a2a2a;
+    padding: 2px 8px;
+    border-radius: 3px;
+    font-size: 0.85em;
+    border: 1px solid #333;
+    margin-right: 5px;
+}
+
+.card-icon{
+    font-size: 1.5rem;
+}

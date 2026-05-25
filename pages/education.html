@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AndCamo / Education</title>
+    <!-- CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../style/main-style.css" rel="stylesheet">
+    <link href="../style/page-style.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/2f266e86a2.js" crossorigin="anonymous"></script>
+    <style>
+      :root {
+        --page-color: #ffc300;      /* Main: Lime Green */
+        --page-color-alt: #ffc300;  /* Alt: Yellow */
+        --page-color-bg: rgba(153, 255, 0, 0.15); 
+      }
+    </style>
+  </head>
+  <body>    <canvas id="ascii-glitch"></canvas>
+    
+    <div class="page-container">
+      <!-- Back to Home -->
+      <a href="../index.html" class="back-home-btn">
+        <i class="fa-solid fa-arrow-left"></i>
+        <span class="prompt">[@andcamo]$ </span>
+        <span class="command">cd <span class="dots">..</span></span>
+      </a>
+
+      <!-- Page Header -->
+      <header id="header-container" style="margin-bottom: 3rem; padding: 20px 0;">
+        <h1 class="md-h1">Education</h1>
+        <p style="opacity: 0.6; font-style: italic;">
+          // My academic path and research contributions
+        </p>
+      </header>
+
+      <!-- Content Section -->
+      <main>
+        <h2 class="md-h2">degrees</h2>
+        
+        <!-- Example Terminal Card 1 -->
+        <div class="terminal-card-md">
+          <div class="card-metadata">
+            <span>type: <b>Master_of_Science</b></span>
+            <span>status: <b>2024-present</b></span>
+          </div>
+          <div class="card-content">
+            <span class="card-title-md">Computer Science @ University of Turin</span>
+            <div class="card-body-md">
+              Curriculum in Artificial Intelligence. <br>
+              Focus: Deep Learning, Natural Language Processing, Computer Vision. <br>
+              <span class="md-highlight">GPA: 29.3/30</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Example Terminal Card 2 -->
+        <div class="terminal-card-md">
+          <div class="card-metadata">
+            <span>type: <b>Bachelor_of_Science</b></span>
+            <span>status: <b>2021-2024</b></span>
+          </div>
+          <div class="card-content">
+            <span class="card-title-md">Computer Science @ University of Salerno</span>
+            <div class="card-body-md">
+              <span class="md-highlight">Final Grade: 110/110 cum laude</span>. <br>
+              Thesis: "Analysis and Mitigation of Fake News Diffusion: Development of a Simulation Platform Based on Agent-Based Models and Deep Reinforcement Learning".
+            </div>
+          </div>
+        </div>
+
+        <h2 class="md-h2">publications</h2>
+        
+        <div class="terminal-card-md">
+          <div class="card-metadata">
+            <span>type: <b>journal_article</b></span>
+            <span>year: <b>2025</b></span>
+          </div>
+          <div class="card-content">
+            <a href="https://rdcu.be/es5qO" target="_blank" style="text-decoration: none;">
+              <span class="card-title-md">Turning AI into a regulatory sandbox: exploring information disorder mitigation strategies with ABM and deep reinforcement learning</span>
+            </a>
+            <div class="card-body-md">
+              Authors: <i>R. Zaccagnino, N. Lettieri, D. Malandrino, L. Lomasto, A. Camoia, A. Guarino</i> <br>
+              Published in: <span class="md-highlight">Springer Nature in Neural Computing and Applications</span>
+
+              <br><br>
+              Co-developed a framework to counter Social Media Information Disorder using Model-Based Simulation and Reinforcement Learning. Engineered a dedicated web application to manage simulations and provide advanced data visualization of experimental results.
+            </div>
+          </div>
+        </div>
+      </main>
+
+      
+      <footer style="margin-top: 5rem; border-top: 1px solid #333; padding-top: 20px; display: flex; justify-content: space-between; align-items: center;">
+        <span style="opacity: 0.5; font-size: 0.8em;">EOF -- lines: 142, chars: 3421</span>
+        <a href="../index.html" class="back-home-btn" style="margin-bottom: 0;">
+          <i class="fa-solid fa-arrow-left"></i>
+          <span class="prompt">[@andcamo]$ </span>
+          <span class="command">cd <span class="dots">..</span></span>
+        </a>
+      </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="./script/glitch-script.js"></script>
+  </body>
+</html>

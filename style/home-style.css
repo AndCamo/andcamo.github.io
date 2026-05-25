@@ -39,8 +39,14 @@
 
 /* Su schermi piccoli (smartphone) */
 @media (max-width: 600px) {
+    #header-container {
+        padding: 20px 10px; /* Ridotto il padding laterale per dare più spazio al contenuto */
+        margin: 20px 5px !important; /* Ridotto il margine esterno per allargare il container */
+    }
+
     .logo {
         width: 35vw;    /* più grande rispetto al default */
+        margin-bottom: 15px;
     }
 }
 
@@ -167,20 +173,30 @@
 }
 
 .nav-item a {
-    color: #83c5be;
     text-decoration: none;
     font-weight: 500;
     transition: all 0.2s ease;
+    position: relative;
+    padding-bottom: 2px;
 }
 
 .nav-item a::after {
-    content: "/";
-    margin-left: 2px;
-    opacity: 0.5;
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    background-color: currentColor;
+    transition: width 0.3s ease;
+    opacity: 0.7;
+}
+
+.nav-item a:hover::after {
+    width: 100%;
 }
 
 .nav-item a:hover {
-    color: #e63946;
     padding-left: 8px;
 }
 

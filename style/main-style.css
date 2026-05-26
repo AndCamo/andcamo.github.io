@@ -73,11 +73,11 @@ body {
     line-height: 14px;
     white-space: pre; 
     font-weight: bold;
-    text-shadow: 0 0 5px var(--dim-color);
+    text-shadow: 0 0 5px var(--text-dim);
     min-width: fit-content;
     min-height: fit-content;
     display: flex;
-    color: beige;
+    color: var(--text-main);
     align-items: center;
     justify-content: center;
 }

@@ -84,6 +84,12 @@
     margin-right: 10px;
 }
 
+.title-icon {
+    margin-right: 15px;
+    color: var(--page-color);
+    -webkit-text-fill-color: var(--page-color);
+}
+
 .md-h2 {
     color: var(--text-main);
     font-size: 1.4rem;
@@ -194,12 +200,11 @@
     max-width: 100%;
     max-height: 200px;
     border-radius: 4px;
-    filter: grayscale(0.5) contrast(1.1);
-    transition: filter 0.3s ease;
+    transition: filter 0.3s ease, transform 0.3s ease;
 }
 
 .project-card-md:hover .project-img-md {
-    filter: grayscale(0);
+    transform: scale(1.05);
 }
 
 .project-details {

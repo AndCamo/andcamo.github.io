@@ -170,6 +170,15 @@
     margin: 4px 0;
 }
 
+.md-highlight-inline {
+    background: var(--page-color-bg);
+    color: var(--page-color);
+    padding: 0 6px;
+    border-radius: 3px;
+    font-weight: bold;
+    display: inline;
+}
+
 /* Rich Project Card */
 .project-card-md {
     background: var(--card-bg);

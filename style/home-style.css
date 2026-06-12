@@ -220,8 +220,8 @@
 }
 
 /* Color variations for nav items */
-.nav-edu a { color: #f1c400; } /* Brighter Yellow */
-.nav-edu:hover i { color: #f1c400; }
+.nav-edu a { color: #fe6d73; } /* Yellow-Orange */
+.nav-edu:hover i { color: #fe6d73; }
 
 .nav-proj a { color: #268bd2; } /* Solarized Blue */
 .nav-proj:hover i { color: #268bd2; }
@@ -265,7 +265,7 @@
 }
 
 .terminal-hr {
-    margin: 4rem 0;
+    margin: 1rem 0;
     border: 0;
     border-top: 1px dashed var(--border-main);
     opacity: 1;

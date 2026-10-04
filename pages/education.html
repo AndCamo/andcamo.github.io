@@ -3,25 +3,23 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/@hackernoon/pixel-icon-library/fonts/iconfont.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../style/main-style.css" rel="stylesheet">
-    <link href="../style/page-style.css" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/2f266e86a2.js" crossorigin="anonymous"></script>
-    <style>
-      :root {
-        --page-color: #fe6d73;      /* Yellow-Orange */
-        --page-color-alt: #f7c59f;  /* Dark Blue */
-        --page-color-bg: rgba(253, 84, 0, 0.15); 
-      }
-    </style>
-
     <title>AndCamo / Education</title>
     <link rel="icon" href="../favicon.ico" sizes="../assets/icons/Icon.ico">
     <link rel="icon" type="image/svg+xml" href="../assets/icons/Icon.svg">
+    <!-- CSS -->
+    <link href="../style/main-style.css" rel="stylesheet">
+    <link href="../style/page-style.css" rel="stylesheet">
+    <link href="../style/dither-style.css" rel="stylesheet">
+    <style>
+      :root {
+        --page-color: #fe6d73;      /* Coral */
+        --page-color-alt: #f7c59f;  /* Peach */
+        --page-color-bg: rgba(254, 109, 115, 0.15);
+        --dither-accent: 254, 109, 115;
+      }
+    </style>
   </head>
-  <body>
+  <body class="dither">
     <script>
       if (localStorage.getItem('theme') === 'light') {
         document.body.classList.add('light-mode');
@@ -29,85 +27,85 @@
     </script>
     <!-- Persistent ASCII Effects -->
     <canvas id="ascii-glitch"></canvas>
-    
+
     <div class="page-container">
       <!-- Back to Home -->
       <a href="../index.html" class="back-home-btn">
-        <i class="fa-solid fa-arrow-left"></i>
+        <span class="arrow">&larr;</span>
         <span class="prompt">[@andcamo]$ </span>
         <span class="command">cd <span class="dots">..</span></span>
       </a>
 
       <!-- Page Header -->
-      <header id="header-container" style="margin-bottom: 3rem; padding: 20px 0;">
-        <h1 class="md-h1"><i class="hn hn-book-solid title-icon"></i>Education</h1>
-        <p style="opacity: 0.6; font-style: italic;">
-          // My academic path and research contributions
-        </p>
+      <header class="dither-header">
+        <h1 class="dither-title">Education</h1>
+        <p class="dither-subtitle">// My academic path and research contributions</p>
+        <pre class="dither-bar" data-rows="3" data-animated aria-hidden="true"></pre>
       </header>
 
       <!-- Content Section -->
       <main>
-        <h2 class="md-h2">degrees</h2>
-        
-        <!-- Example Terminal Card 1 -->
-        <div class="terminal-card-md">
-          <div class="card-metadata">
-            <span>type: <b>Master_of_Science</b></span>
-            <span>status: <b>2024-present</b></span>
-          </div>
-          <div class="card-content">
-            <span class="card-title-md">Computer Science @ University of Turin</span>
-            <div class="card-body-md">
-              Curriculum in Artificial Intelligence. <br>
-              Focus: Deep Learning, Natural Language Processing, Computer Vision. <br>
-              <span class="md-highlight">GPA: 29.5/30</span>
-            </div>
-          </div>
-        </div>
+        <h2 class="dither-section">degrees</h2>
 
-        <!-- Example Terminal Card 2 -->
-        <div class="terminal-card-md">
-          <div class="card-metadata">
-            <span>type: <b>Bachelor_of_Science</b></span>
-            <span>status: <b>2021-2024</b></span>
-          </div>
-          <div class="card-content">
-            <span class="card-title-md">Computer Science @ University of Salerno</span>
-            <div class="card-body-md">
-              <span class="md-highlight">Final Grade: 110/110 cum laude</span>. <br>
-              Thesis: "Analysis and Mitigation of Fake News Diffusion: Development of a Simulation Platform Based on Agent-Based Models and Deep Reinforcement Learning".
+        <!-- MSc -->
+        <article class="dither-project">
+          <header class="dither-project-head">
+            <span class="dither-index">01</span>
+            <div>
+              <h3 class="dither-name">Computer Science @ University of Turin</h3>
+              <div class="dither-meta"><span>2024-present</span><span>master_of_science</span></div>
             </div>
+          </header>
+          <pre class="dither-bar is-head" data-rows="1" aria-hidden="true"></pre>
+          <div class="dither-body">
+            <p>Curriculum in Artificial Intelligence.<br>
+            Focus: Deep Learning, Natural Language Processing, Computer Vision.</p>
+            <p><span class="hl">GPA: 29.5/30</span></p>
           </div>
-        </div>
+        </article>
 
-        <h2 class="md-h2">publications</h2>
-        
-        <div class="terminal-card-md">
-          <div class="card-metadata">
-            <span>type: <b>journal_article</b></span>
-            <span>year: <b>2025</b></span>
-          </div>
-          <div class="card-content">
-            <a href="https://rdcu.be/es5qO" target="_blank" style="text-decoration: none;">
-              <span class="card-title-md">Turning AI into a regulatory sandbox: exploring information disorder mitigation strategies with ABM and deep reinforcement learning</span>
-            </a>
-            <div class="card-body-md">
-              Authors: <i>R. Zaccagnino, N. Lettieri, D. Malandrino, L. Lomasto, A. Camoia, A. Guarino</i> <br>
-              Published in: <span class="md-highlight">Springer Nature in Neural Computing and Applications</span>
-
-              <br><br>
-              Co-developed a framework to counter Social Media Information Disorder using Model-Based Simulation and Reinforcement Learning. Engineered a dedicated web application to manage simulations and provide advanced data visualization of experimental results.
+        <!-- BSc -->
+        <article class="dither-project">
+          <header class="dither-project-head">
+            <span class="dither-index">02</span>
+            <div>
+              <h3 class="dither-name">Computer Science @ University of Salerno</h3>
+              <div class="dither-meta"><span>2021-2024</span><span>bachelor_of_science</span></div>
             </div>
+          </header>
+          <pre class="dither-bar is-head" data-rows="1" aria-hidden="true"></pre>
+          <div class="dither-body">
+            <p><span class="hl">Final Grade: 110/110 cum laude</span></p>
+            <p><strong>Thesis:</strong> "Analysis and Mitigation of Fake News Diffusion: Development of a Simulation Platform Based on Agent-Based Models and Deep Reinforcement Learning".</p>
           </div>
-        </div>
+        </article>
+
+        <h2 class="dither-section">publications</h2>
+
+        <!-- Journal article -->
+        <article class="dither-project">
+          <header class="dither-project-head">
+            <span class="dither-index">01</span>
+            <div>
+              <h3 class="dither-name"><a href="https://rdcu.be/es5qO" target="_blank">Turning AI into a regulatory sandbox: exploring information disorder mitigation strategies with ABM and deep reinforcement learning</a></h3>
+              <div class="dither-meta"><span>2025</span><span>journal_article</span></div>
+            </div>
+          </header>
+          <pre class="dither-bar is-head" data-rows="1" aria-hidden="true"></pre>
+          <div class="dither-body">
+            <p><strong>Authors:</strong> <i>R. Zaccagnino, N. Lettieri, D. Malandrino, L. Lomasto, A. Camoia, A. Guarino</i><br>
+            <strong>Published in:</strong> <span class="hl">Springer Nature in Neural Computing and Applications</span></p>
+            <p>Co-developed a framework to counter Social Media Information Disorder using Model-Based Simulation and Reinforcement Learning. Engineered a dedicated web application to manage simulations and provide advanced data visualization of experimental results.</p>
+          </div>
+          <a href="https://rdcu.be/es5qO" class="dither-link" data-cmd="open" target="_blank">rdcu.be/es5qO</a>
+        </article>
       </main>
 
-      
-      <footer style="margin-top: 5rem; border-top: 1px solid #333; padding-top: 20px; display: flex; justify-content: space-between; align-items: center;">
-        <span style="opacity: 0.5; font-size: 0.8em;">EOF -- sections: 2, chars: 1127</span>
-        <a href="../index.html" class="back-home-btn" style="margin-bottom: 0;">
-          <i class="fa-solid fa-arrow-left"></i>
+      <!-- Footer -->
+      <footer class="dither-footer">
+        <span>EOF -- sections: 2, chars: 1127</span>
+        <a href="../index.html" class="back-home-btn">
+          <span class="arrow">&larr;</span>
           <span class="prompt">[@andcamo]$ </span>
           <span class="command">cd <span class="dots">..</span></span>
         </a>
@@ -116,5 +114,6 @@
 
     <!-- Scripts -->
     <script src="../script/glitch-script.js"></script>
+    <script src="../script/dither-script.js"></script>
   </body>
 </html>

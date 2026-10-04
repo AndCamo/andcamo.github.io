@@ -7,20 +7,19 @@
     <link rel="icon" href="../favicon.ico" sizes="../assets/icons/Icon.ico">
     <link rel="icon" type="image/svg+xml" href="../assets/icons/Icon.svg">
     <!-- CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="../style/main-style.css" rel="stylesheet">
     <link href="../style/page-style.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/@hackernoon/pixel-icon-library/fonts/iconfont.css">
-    <script src="https://kit.fontawesome.com/2f266e86a2.js" crossorigin="anonymous"></script>
+    <link href="../style/dither-style.css" rel="stylesheet">
     <style>
       :root {
         --page-color: #268bd2;      /* Solarized Blue */
         --page-color-alt: #6c71c4;  /* Solarized Violet */
         --page-color-bg: rgba(38, 139, 210, 0.15);
+        --dither-accent: 38, 139, 210;
       }
     </style>
   </head>
-  <body>
+  <body class="dither">
     <script>
       if (localStorage.getItem('theme') === 'light') {
         document.body.classList.add('light-mode');
@@ -28,139 +27,125 @@
     </script>
     <!-- Persistent ASCII Effects -->
     <canvas id="ascii-glitch"></canvas>
-    
+
     <div class="page-container">
       <!-- Back to Home -->
       <a href="../index.html" class="back-home-btn">
-        <i class="fa-solid fa-arrow-left"></i>
+        <span class="arrow">&larr;</span>
         <span class="prompt">[@andcamo]$ </span>
         <span class="command">cd <span class="dots">..</span></span>
       </a>
 
       <!-- Page Header -->
-      <header id="header-container" style="margin-bottom: 3rem; padding: 20px 0;">
-        <h1 class="md-h1"><i class="hn hn-startups title-icon"></i>Projects</h1>
-        <p style="opacity: 0.6; font-style: italic;">
-          // What I've built, Personal Projects, University Projects, and more.
-        </p>
+      <header class="dither-header">
+        <h1 class="dither-title">Projects</h1>
+        <p class="dither-subtitle">// What I've built, Personal Projects, University Projects, and more.</p>
+        <pre class="dither-bar" data-rows="3" data-animated aria-hidden="true"></pre>
       </header>
 
       <!-- Content Section -->
       <main>
         <!-- P.I.E.N.A.H -->
-        <div class="project-card-md">
-          <div class="card-metadata">
-            <span>id: 01</span>
-            <span>year: 2026</span>
-            <span>type: university_project</span>
-          </div>
-          <div class="project-image-container">
-            <img src="../assets/images/pienah.jpg" class="project-img-md" alt="P.I.E.N.A.H Project Logo">
-          </div>
-          <div class="project-details">
-            <span class="card-title-md md-highlight">P.I.E.N.A.H</span>
-            <div class="card-body-md">
-              <p>P.I.E.N.A.H. (Private Image Evaluation Network on Arduino Hardware) is a <span class="md-highlight-inline">Edge AI solution</span> engineered to analyze and monitor spatial occupancy in classroom environments using  <span class="md-highlight-inline">computer vision techniques</span>. </p>
-              <img src="../assets/images/seats_occupancy_eval.png" class="img-fluid mt-3" style="width: 100%; max-width: 350px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.1);" alt="Seats Occupancy Evaluation">
-              <p>It leverages a <span class="md-highlight-inline">YOLO-based segmentation model</span> to detect and segment specific objects (people, laptops, backpacks) and maps these detections against predefined geometric seat masks to precisely calculate the seats availability. Deployed entirely on an Arduino Uno Q Board, the system ensures high scalability, cost-efficiency, and strict data privacy by executing all visual processing locally, eliminating the need for cloud infrastructure.</p>
+        <article class="dither-project">
+          <header class="dither-project-head">
+            <span class="dither-index">01</span>
+            <div>
+              <h2 class="dither-name">P.I.E.N.A.H</h2>
+              <div class="dither-meta"><span>2026</span><span>university_project</span></div>
             </div>
-            <div class="project-tags">
-              <span class="project-tag">Python</span>
-              <span class="project-tag">Computer Vision</span>
-              <span class="project-tag">YOLO</span>
-              <span class="project-tag">Object Detection</span>
-            </div>
-            <a href="https://github.com/AndCamo/EgiNB-Project" class="project-link" target="_blank">https://github.com/AndCamo/EgiNB-Project</a>
+          </header>
+          <pre class="dither-bar is-head" data-rows="1" aria-hidden="true"></pre>
+          <div class="dither-cover" data-ascii>
+            <img src="../assets/images/scan.png" alt="P.I.E.N.A.H Project Logo">
           </div>
-        </div>
+          <div class="dither-body">
+            <p>P.I.E.N.A.H. (Private Image Evaluation Network on Arduino Hardware) is a <span class="hl">Edge AI solution</span> engineered to analyze and monitor spatial occupancy in classroom environments using <span class="hl">computer vision techniques</span>.</p>
+            <p>It leverages a <span class="hl">YOLO-based segmentation model</span> to detect and segment specific objects (people, laptops, backpacks) and maps these detections against predefined geometric seat masks to precisely calculate the seats availability. Deployed entirely on an Arduino Uno Q Board, the system ensures high scalability, cost-efficiency, and strict data privacy by executing all visual processing locally, eliminating the need for cloud infrastructure.</p>
+          </div>
+          <div class="dither-tags">
+            <span>python</span><span>computer_vision</span><span>yolo</span><span>object_detection</span>
+          </div>
+          <a href="https://github.com/AndCamo/EgiNB-Project" class="dither-link" data-cmd="git clone" target="_blank">github.com/AndCamo/EgiNB-Project</a>
+        </article>
+
         <!-- Computer Vision Challenges -->
-        <div class="project-card-md">
-          <div class="card-metadata">
-            <span>id: 02</span>
-            <span>year: 2026</span>
-            <span>type: university_challenge</span>
-          </div>
-          <div class="project-image-container">
-            <img src="../assets/images/ai-image.png" class="project-img-md" alt="Computer Vision Challenges Project Logo">
-          </div>
-          <div class="project-details">
-            <span class="card-title-md md-highlight">Computer Vision Challenges</span>
-            <div class="card-body-md">
-              <p>Competed in multiple student challenges during the "Image Processing and Computer Vision" university course. The challenges involved diverse domains, starting from low-level image processing techniques to advanced <span class="md-highlight-inline">Deep Learning</span> approaches.</p>
-              <ul class="mt-3 mb-3">
-                <li class="mb-2"><strong>Challenge 1 - Image Restoration:</strong> Removed artificial noise from images by leveraging <span class="md-highlight-inline">Fourier Frequency</span> and <span class="md-highlight-inline">Spatial Domain Filtering</span>.</li>
-                <li class="mb-2"><strong>Challenge 2 - Industrial Vision:</strong> Detected and counted mechanic gear teeth using <span class="md-highlight-inline">Image Segmentation</span>, alongside <span class="md-highlight-inline">Edge and Contour Detection</span>.</li>
-                <li><strong>Challenge 3 - Ink Detection:</strong> Participated in the Vesuvius Challenge to detect ink from 3D X-ray scans of ancient papyrus scroll fragments. Designed, implemented, and trained a <span class="md-highlight-inline">U-Net based Autoencoder</span> with a <span class="md-highlight-inline">ResNet encoder</span>.</li>
-              </ul>
-              <img src="../assets/images/gear_challenge.png" class="img-fluid mt-3 mb-3" style="width: 100%; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.1);" alt="Industrial Vision Gear Challenge">
-              <p>Consistently achieved <span class="md-highlight-inline">top-3 results</span> across all challenges.</p>
+        <article class="dither-project">
+          <header class="dither-project-head">
+            <span class="dither-index">02</span>
+            <div>
+              <h2 class="dither-name">Computer Vision Challenges</h2>
+              <div class="dither-meta"><span>2026</span><span>university_challenge</span></div>
             </div>
-            <div class="project-tags">
-              <span class="project-tag">Computer Vision</span>
-              <span class="project-tag">Image Processing</span>
-              <span class="project-tag">Deep Learning</span>
-            </div>
-            <a href="https://github.com/AndCamo/EgiNB-Project" class="project-link" target="_blank">https://github.com/AndCamo/eliva26</a>
+          </header>
+          <pre class="dither-bar is-head" data-rows="1" aria-hidden="true"></pre>
+          <div class="dither-cover" data-ascii>
+            <img src="../assets/images/Gears.png" alt="Gears">
           </div>
-        </div>
+          <div class="dither-body">
+            <p>Competed in multiple student challenges during the "Image Processing and Computer Vision" university course. The challenges involved diverse domains, starting from low-level image processing techniques to advanced <span class="hl">Deep Learning</span> approaches.</p>
+            <ul>
+              <li><strong>Challenge 1 - Image Restoration:</strong> Removed artificial noise from images by leveraging <span class="hl">Fourier Frequency</span> and <span class="hl">Spatial Domain Filtering</span>.</li>
+              <li><strong>Challenge 2 - Industrial Vision:</strong> Detected and counted mechanic gear teeth using <span class="hl">Image Segmentation</span>, alongside <span class="hl">Edge and Contour Detection</span>.</li>
+              <li><strong>Challenge 3 - Ink Detection:</strong> Participated in the Vesuvius Challenge to detect ink from 3D X-ray scans of ancient papyrus scroll fragments. Designed, implemented, and trained a <span class="hl">U-Net based Autoencoder</span> with a <span class="hl">ResNet encoder</span>.</li>
+            </ul>
+            <p>Consistently achieved <span class="hl">top-3 results</span> across all challenges.</p>
+          </div>
+          <div class="dither-tags">
+            <span>computer_vision</span><span>image_processing</span><span>deep_learning</span>
+          </div>
+          <a href="https://github.com/AndCamo/eliva26" class="dither-link" data-cmd="git clone" target="_blank">github.com/AndCamo/eliva26</a>
+        </article>
+
         <!-- Polyglot NoSQL Platform -->
-        <div class="project-card-md">
-          <div class="card-metadata">
-            <span>id: 03</span>
-            <span>year: 2025</span>
-            <span>type: university_project</span>
-          </div>
-          <div class="project-image-container">
-            <img src="../assets/images/database.png" class="project-img-md" alt="Polyglot NoSQL Platform">
-          </div>
-          <div class="project-details">
-            <span class="card-title-md md-highlight">Polyglot NoSQL Platform</span>
-            <div class="card-body-md">
-              Engineered a polyglot persistence platform integrating MongoDB and Neo4j to process and query Big Data from the LDBC Social Network Benchmark. 
-              The architecture leverages both document and graph models to optimize storage and retrieval based on the data's semantic structure.
+        <article class="dither-project">
+          <header class="dither-project-head">
+            <span class="dither-index">03</span>
+            <div>
+              <h2 class="dither-name">Polyglot NoSQL Platform</h2>
+              <div class="dither-meta"><span>2025</span><span>university_project</span></div>
             </div>
-            <div class="project-tags">
-              <span class="project-tag">Python</span>
-              <span class="project-tag">MongoDB</span>
-              <span class="project-tag">Neo4j</span>
-              <span class="project-tag">Big Data</span>
-            </div>
-            <a href="https://github.com/AndCamo/NoSQL_Project" class="project-link" target="_blank">https://github.com/AndCamo/NoSQL_Project</a>
+          </header>
+          <pre class="dither-bar is-head" data-rows="1" aria-hidden="true"></pre>
+          <div class="dither-cover" data-ascii>
+            <img src="../assets/images/database.png" alt="Polyglot NoSQL Platform">
           </div>
-        </div>
+          <div class="dither-body">
+            <p>Engineered a polyglot persistence platform integrating MongoDB and Neo4j to process and query Big Data from the LDBC Social Network Benchmark. The architecture leverages both document and graph models to optimize storage and retrieval based on the data's semantic structure.</p>
+          </div>
+          <div class="dither-tags">
+            <span>python</span><span>mongodb</span><span>neo4j</span><span>big_data</span>
+          </div>
+          <a href="https://github.com/AndCamo/NoSQL_Project" class="dither-link" data-cmd="git clone" target="_blank">github.com/AndCamo/NoSQL_Project</a>
+        </article>
 
         <!-- CleanDesk -->
-        <div class="project-card-md">
-          <div class="card-metadata">
-            <span>id: 04</span>
-            <span>year: 2024</span>
-            <span>type: university_project</span>
-          </div>
-          <div class="project-image-container">
-            <img src="../assets/images/cleandesk.png" class="project-img-md" alt="CleanDesk">
-          </div>
-          <div class="project-details">
-            <span class="card-title-md md-highlight">CleanDesk</span>
-            <div class="card-body-md">
-              A desktop application for Windows and macOS that uses artificial intelligence to transform any folder on a computer into an efficient and intuitive work environment.
+        <article class="dither-project">
+          <header class="dither-project-head">
+            <span class="dither-index">04</span>
+            <div>
+              <h2 class="dither-name">CleanDesk</h2>
+              <div class="dither-meta"><span>2024</span><span>university_project</span></div>
             </div>
-            <div class="project-tags">
-              <span class="project-tag">Python</span>
-              <span class="project-tag">AI</span>
-              <span class="project-tag">Machine Learning</span>
-              <span class="project-tag">Desktop App</span>
-            </div>
-            <a href="https://github.com/AndCamo/CleanDesk" class="project-link" target="_blank">https://github.com/AndCamo/CleanDesk</a>
+          </header>
+          <pre class="dither-bar is-head" data-rows="1" aria-hidden="true"></pre>
+          <div class="dither-cover" data-ascii>
+            <img src="../assets/images/folder.png" alt="CleanDesk">
           </div>
-        </div>
-
+          <div class="dither-body">
+            <p>A desktop application for Windows and macOS that uses artificial intelligence to transform any folder on a computer into an efficient and intuitive work environment.</p>
+          </div>
+          <div class="dither-tags">
+            <span>python</span><span>ai</span><span>machine_learning</span><span>desktop_app</span>
+          </div>
+          <a href="https://github.com/AndCamo/CleanDesk" class="dither-link" data-cmd="git clone" target="_blank">github.com/AndCamo/CleanDesk</a>
+        </article>
       </main>
 
-      <!-- Simple Footer -->
-      <footer style="margin-top: 5rem; border-top: 1px solid #333; padding-top: 20px; display: flex; justify-content: space-between; align-items: center;">
-        <span style="opacity: 0.5; font-size: 0.8em;">EOF -- projects_listed: 4, still_working: True</span>
-        <a href="../index.html" class="back-home-btn" style="margin-bottom: 0;">
-          <i class="fa-solid fa-arrow-left"></i>
+      <!-- Footer -->
+      <footer class="dither-footer">
+        <span>EOF -- projects_listed: 4, still_working: True</span>
+        <a href="../index.html" class="back-home-btn">
+          <span class="arrow">&larr;</span>
           <span class="prompt">[@andcamo]$ </span>
           <span class="command">cd <span class="dots">..</span></span>
         </a>
@@ -169,5 +154,6 @@
 
     <!-- Scripts -->
     <script src="../script/glitch-script.js"></script>
+    <script src="../script/dither-script.js"></script>
   </body>
 </html>

@@ -1,0 +1,404 @@
+/* ================================================================
+   DITHER STYLE — monochrome, ascii-shaded, minimal
+   Scoped to body.dither so it never leaks into other pages.
+   Each page defines in :root  --page-color, --page-color-alt,
+   --page-color-bg and --dither-accent (rgb triplet of --page-color).
+   ================================================================ */
+
+body.dither {
+    /* --bg-main and the background ascii (--ascii-*) come from
+       main-style.css, so the backdrop matches the home page */
+    --text-main: #d3dede;
+    --text-dim: #85908f;
+    --text-faint: #4f5757;
+    --dither-ink: 190, 214, 214;   /* rgb triplet used by canvas renderers */
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    font-size: 15px;
+}
+
+body.dither.light-mode {
+    --bg-main: #fdf6e3;
+    --text-main: #073642;
+    --text-dim: #657b83;
+    --text-faint: #c9c0a6;
+    --dither-ink: 7, 54, 66;
+}
+
+.dither .page-container {
+    max-width: 780px;
+}
+
+.dither ::selection {
+    background: var(--page-color);
+    color: var(--bg-main);
+}
+
+/* ---------- Back button: plain prompt, no box ---------- */
+.dither .back-home-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    color: var(--text-dim);
+    font-weight: 400;
+    margin-bottom: 4rem;
+}
+
+.dither .back-home-btn:hover {
+    background: none;
+    color: var(--text-main);
+    transform: none;
+}
+
+.dither .back-home-btn .command { color: var(--text-main); }
+.dither .back-home-btn .dots    { color: var(--page-color); }
+.dither .back-home-btn .arrow   { transition: transform 0.2s ease; display: inline-block; }
+.dither .back-home-btn:hover .arrow { transform: translateX(-4px); }
+
+/* ---------- Header ---------- */
+.dither-header {
+    margin-bottom: 4.5rem;
+}
+
+.dither-title {
+    font-size: 2.4rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    margin: 0 0 0.4rem;
+    background: linear-gradient(90deg, var(--page-color), var(--page-color-alt));
+    -webkit-background-clip: text;
+            background-clip: text;
+    -webkit-text-fill-color: transparent;
+    width: fit-content;
+}
+
+.dither-title::before {
+    content: "# ";
+    -webkit-text-fill-color: var(--page-color);
+    opacity: 0.5;
+    font-weight: 400;
+}
+
+.dither-subtitle {
+    color: var(--text-dim);
+    font-size: 0.9em;
+    margin: 0 0 1.6rem;
+}
+
+/* ---------- Generated dither gradient bars (░▒▓█) ---------- */
+.dither-bar {
+    display: block;
+    margin: 0;
+    font-family: inherit;
+    font-size: 10px;
+    line-height: 10px;
+    white-space: pre;
+    overflow: hidden;
+    background: linear-gradient(90deg, var(--page-color), var(--page-color-alt) 70%);
+    -webkit-background-clip: text;
+            background-clip: text;
+    -webkit-text-fill-color: transparent;
+    opacity: 0.8;
+    user-select: none;
+    pointer-events: none;
+}
+
+.dither-bar.is-head {
+    opacity: 0.45;
+    margin: 1.2rem 0 1.6rem;
+}
+
+/* ---------- Project entry ---------- */
+/* Each project is a light panel: a page-coloured dot texture that
+   dithers out towards the bottom, plus a dotted rail on the left. */
+.dither-project {
+    position: relative;
+    padding: 2rem 2rem 2.4rem 2.2rem;
+    margin-bottom: 4rem;
+    isolation: isolate;
+}
+
+.dither-project::before,
+.dither-project::after {
+    content: "";
+    position: absolute;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+/* tinted dot texture */
+.dither-project::before {
+    inset: 0;
+    z-index: -1;
+    background-image: radial-gradient(rgba(var(--dither-accent), 0.35) 1px, transparent 1.3px);
+    background-size: 5px 5px;
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.12) 35%, transparent 75%);
+            mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.12) 35%, transparent 75%);
+    opacity: 0.6;
+}
+
+/* dotted rail on the left */
+.dither-project::after {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 3px;
+    background-image: radial-gradient(var(--page-color) 1.1px, transparent 1.4px);
+    background-size: 3px 5px;
+    -webkit-mask-image: linear-gradient(to bottom, #000 20%, transparent);
+            mask-image: linear-gradient(to bottom, #000 20%, transparent);
+    opacity: 0.6;
+}
+
+.dither-project:hover::before { opacity: 1; }
+.dither-project:hover::after  { opacity: 1; }
+
+.dither-project-head {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+.dither-index {
+    font-size: 2.8rem;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    background: linear-gradient(135deg, var(--page-color), var(--page-color-alt));
+    -webkit-background-clip: text;
+            background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.dither-meta {
+    display: flex;
+    gap: 0.6rem;
+    font-size: 0.78em;
+    color: var(--text-dim);
+    letter-spacing: 0.04em;
+}
+
+.dither-meta span + span::before {
+    content: "·";
+    color: var(--text-faint);
+    margin-right: 0.6rem;
+}
+
+/* ASCII cover */
+.dither-cover {
+    position: relative;
+    height: 300px;
+    margin-bottom: 1.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.dither-cover canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Source image: shown only as a fallback when the ascii renderer can't run */
+.dither-cover > img {
+    max-height: 100%;
+    max-width: 100%;
+    filter: grayscale(1) contrast(1.15);
+    opacity: 0.8;
+}
+
+.dither-cover.is-ascii > img {
+    display: none;
+}
+
+/* The animated gif already is ascii: blend its black background away
+   and fade the frame edges into the page */
+
+.dither-cover.is-gif > img {
+    height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+    filter: none;
+    opacity: 1;
+    mix-blend-mode: screen;
+    -webkit-mask-image: radial-gradient(closest-side, #000 65%, transparent 100%);
+            mask-image: radial-gradient(closest-side, #000 65%, transparent 100%);
+}
+
+.light-mode .dither-cover.is-gif > img {
+    filter: invert(1) grayscale(1) contrast(1.2);
+    mix-blend-mode: multiply;
+}
+
+/* ---------- Section headings (## degrees) ---------- */
+.dither-section {
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    color: var(--text-dim);
+    margin: 0 0 1.4rem;
+}
+
+.dither-section::before {
+    content: "## ";
+    color: var(--page-color);
+}
+
+.dither-section:not(:first-child) {
+    margin-top: 5rem;
+}
+
+/* Title + body */
+.dither-name {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin: 0 0 0.2rem;
+    color: var(--text-main);
+}
+
+.dither-name a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.dither-name a:hover {
+    color: var(--page-color);
+}
+
+.dither-body {
+    color: var(--text-dim);
+    line-height: 1.75;
+    font-size: 0.93em;
+}
+
+.dither-body p {
+    margin: 0 0 1rem;
+}
+
+.dither-body strong {
+    color: var(--text-main);
+    font-weight: 500;
+}
+
+.dither-body .hl {
+    color: var(--page-color);
+    background: var(--page-color-bg);
+    padding: 0 4px;
+    border-radius: 2px;
+    font-weight: 500;
+}
+
+.dither-body ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0 0 1rem;
+}
+
+.dither-body li {
+    padding-left: 1.6em;
+    text-indent: -1.6em;
+    margin-bottom: 0.6rem;
+}
+
+.dither-body li::before {
+    content: "░ ";
+    color: var(--page-color);
+}
+
+/* Inline figures: halftone-ish grayscale, colour comes back on hover */
+.dither-figure {
+    position: relative;
+    margin: 1.4rem 0;
+    max-width: 100%;
+    display: inline-block;
+}
+
+.dither-figure.is-narrow { max-width: 360px; }
+
+.dither-figure img {
+    display: block;
+    width: 100%;
+    filter: grayscale(1) contrast(1.1) brightness(0.9);
+    transition: filter 0.4s ease;
+}
+
+.dither-figure::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image: radial-gradient(var(--bg-main) 0.8px, transparent 1.1px);
+    background-size: 3px 3px;
+    opacity: 0.55;
+    transition: opacity 0.4s ease;
+}
+
+.dither-figure:hover img     { filter: none; }
+.dither-figure:hover::after  { opacity: 0; }
+
+.dither-figure figcaption {
+    font-size: 0.72em;
+    color: var(--text-faint);
+    margin-top: 0.4rem;
+}
+
+/* Tags + link */
+.dither-tags {
+    margin-top: 1.4rem;
+    font-size: 0.78em;
+    color: var(--text-dim);
+}
+
+.dither-tags span + span::before {
+    content: " · ";
+    color: var(--text-faint);
+}
+
+.dither-link {
+    display: inline-block;
+    margin-top: 0.8rem;
+    font-size: 0.85em;
+    color: var(--text-main);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--text-faint);
+}
+
+.dither-link::before {
+    content: "$ " attr(data-cmd) " ";
+    color: var(--text-dim);
+}
+
+.dither-link:hover {
+    color: var(--page-color);
+    border-bottom-color: var(--page-color);
+}
+
+/* ---------- Footer ---------- */
+.dither-footer {
+    margin-top: 5rem;
+    padding-top: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 0.8em;
+    color: var(--text-faint);
+}
+
+.dither-footer .back-home-btn { margin-bottom: 0; }
+
+@media (max-width: 600px) {
+    .dither-title { font-size: 1.8rem; }
+    .dither-cover { height: 190px; }
+    .dither-project { padding: 1.4rem 0.6rem 1.8rem 1.2rem; }
+    .dither-index { font-size: 2.1rem; }
+    .dither-link  { word-break: break-all; }
+    .dither-footer { flex-direction: column; gap: 1.2rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .dither .back-home-btn .arrow { transition: none; }
+}

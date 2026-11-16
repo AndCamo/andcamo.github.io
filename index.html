@@ -28,6 +28,28 @@
           localStorage.setItem('theme', document.body.classList.contains('light-mode') ? 'light' : 'dark');
         });
 
+        // Terminal animations (static if reduced motion is preferred)
+        if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          // whoami spinners, out of phase
+          const SPINNER_FRAMES = '⠋⠙⠹⠸⠼⠴⠦⠧⠇⠏';
+          const $spinners = $('.whoami-spinner');
+          // nav pulse: a vertical pair of dots sweeping right, into the link
+          const NAV_FRAMES = ['⠀', '⠆', '⠶', '⠰', '⠀'];
+          const $navArrows = $('.nav-arrow');
+          let tick = 0;
+          setInterval(function() {
+            tick++;
+            $spinners.each(function(i) {
+              this.textContent = SPINNER_FRAMES[(tick + i * 4) % SPINNER_FRAMES.length];
+            });
+            if (tick % 2 === 0) {
+              $navArrows.each(function(i) {
+                this.textContent = NAV_FRAMES[(tick / 2 + i * 2) % NAV_FRAMES.length];
+              });
+            }
+          }, 90);
+        }
+
         // Quando la card si apre
         $('#collapseCard1').on('show.bs.collapse', function () {
           $('#card-1').addClass('card-open');
@@ -68,21 +90,43 @@
           <div class="terminal-bio">
             <div class="terminal-prompt">whoami</div>
             <div class="terminal-output">
-              Focused on <span class="bio-tag">AI <i class="hn hn-robot inline-icon"></i></span>, <span class="bio-tag">Deep Learning <i class="hn hn-sitemap inline-icon"></i></span>, and <span class="bio-tag">Neural Networks <i class="hn hn-share inline-icon"></i></span> <br>
-              Computer Science Student <span class="color-1">@</span> <a href="https://magistrale.informatica.unito.it/do/home.pl" target="_blank" style="color: inherit; text-decoration: underline;">UniTo</a>. <br>
-              Based in Italy <span style="opacity: 0.5;">[45.0677° N, 7.6825° E]</span>.
+              <ul class="whoami-tree">
+                <li class="whoami-study">
+                  <span class="whoami-spinner" aria-hidden="true">⠋</span>
+                  <span class="whoami-val">
+                    <i class="hn hn-book-bookmark-solid whoami-icon"></i>
+                    <span class="whoami-key">studying</span> <span class="color-1">@</span> <a href="https://magistrale.informatica.unito.it/do/home.pl" target="_blank" style="color: inherit; text-decoration: underline;">UniTo</a>:
+                    Computer Science, focusing on
+                    <span class="bio-tag">AI <i class="hn hn-robot inline-icon"></i></span>
+                    <span class="bio-tag">Deep Learning <i class="hn hn-sitemap inline-icon"></i></span>
+                    <span class="bio-tag">Neural Networks <i class="hn hn-share inline-icon"></i></span>
+                  </span>
+                </li>
+                <li class="whoami-work">
+                  <span class="whoami-spinner" aria-hidden="true">⠋</span>
+                  <span class="whoami-val">
+                    <i class="hn hn-flag-checkered-solid whoami-icon"></i>
+                    <span class="whoami-key">working</span> <span class="color-1">@</span> <span class="whoami-company">Ferrari S.p.A.</span>:
+                    AI Software Engineer in R&amp;D, exploring and tinkering with AI solutions.
+                  </span>
+                </li>
+              </ul>
+              <div class="whoami-loc">
+                Based in Italy <span style="opacity: 0.5;">[45.0677° N, 7.6825° E]</span>.
+              </div>
             </div>
           </div>
-
           <div class="nav-section">
             <div class="terminal-prompt">ls -F --more-info</div>
             <ul class="nav-list">
               <li class="nav-item nav-edu">
-                <i class="fa-solid fa-graduation-cap"></i>
+                <span class="nav-arrow" aria-hidden="true">⠶</span>
+                <i class="hn hn-graduation-cap-solid"></i>
                 <a href="./pages/education.html">education</a>
               </li>
               <li class="nav-item nav-proj">
-                <i class="fa-solid fa-folder-open"></i>
+                <span class="nav-arrow" aria-hidden="true">⠶</span>
+                <i class="hn hn-laptop-code-solid"></i>
                 <a href="./pages/projects.html">projects</a>
               </li>
               <!--- Future sections, currently placeholders

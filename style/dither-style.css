@@ -118,6 +118,11 @@ body.dither.light-mode {
     isolation: isolate;
 }
 
+/* No gap between consecutive entries of the same category */
+.dither-project:has(+ .dither-project) {
+    margin-bottom: 0;
+}
+
 .dither-project::before,
 .dither-project::after {
     content: "";
@@ -187,7 +192,7 @@ body.dither.light-mode {
 /* ASCII cover */
 .dither-cover {
     position: relative;
-    height: 300px;
+    height: 250px;
     margin-bottom: 1.8rem;
     display: flex;
     align-items: center;
@@ -235,7 +240,7 @@ body.dither.light-mode {
 
 /* ---------- Section headings (## degrees) ---------- */
 .dither-section {
-    font-size: 0.85rem;
+    font-size: 1.25rem;
     font-weight: 500;
     letter-spacing: 0.08em;
     color: var(--text-dim);
@@ -393,7 +398,7 @@ body.dither.light-mode {
 @media (max-width: 600px) {
     .dither-title { font-size: 1.8rem; }
     .dither-cover { height: 190px; }
-    .dither-project { padding: 1.4rem 0.6rem 1.8rem 1.2rem; }
+    .dither-project { padding: 1.4rem 0.6rem 1.8rem 0.6rem; }
     .dither-index { font-size: 2.1rem; }
     .dither-link  { word-break: break-all; }
     .dither-footer { flex-direction: column; gap: 1.2rem; }

@@ -66,7 +66,7 @@
     default: {
       cellW: 6,
       cellH: 10,
-      font: '500 9px "IBM Plex Mono", monospace',
+      font: '500 10px "IBM Plex Mono", monospace',
       glyphs: ["", ".:'`,-", "-=+~<>/\\|()", "iltfjc[]{}?*1", "eonuxZ53FCP#"],
       mutation: 0.025,
       breathe: 0.05,

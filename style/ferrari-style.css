@@ -1,0 +1,113 @@
+:root {
+    --ferrari-red: #ff2800;
+    --ferrari-yellow: #fff200;
+    --f-green: #2aa198;
+    --f-glitch: #83c5be;
+}
+
+body.light-mode {
+    --ferrari-red: #d40000;
+    --ferrari-yellow: #b58900;
+}
+
+/* ===== NOW / EXPERIENCE BLOCK ===== */
+.now-entry {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+}
+
+.now-badge {
+    font-size: 0.7em;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    padding: 1px 6px;
+    border-radius: 2px;
+    background: var(--ferrari-red);
+    color: #fff;
+    animation: now-badge-blink 2.4s steps(1) infinite;
+}
+
+@keyframes now-badge-blink {
+    0%, 85% { opacity: 1; }
+    86%, 92% { opacity: 0.2; }
+    93%, 100% { opacity: 1; }
+}
+
+.now-role {
+    font-weight: 600;
+}
+
+.now-company {
+    color: var(--ferrari-red);
+    font-weight: 700;
+    letter-spacing: 0.05em;
+}
+
+.now-meta {
+    color: var(--text-dim);
+    font-size: 0.85em;
+}
+
+.now-meta .now-flag {
+    letter-spacing: -0.15em;
+}
+
+.now-flag .g { color: #009246; }
+.now-flag .w { color: var(--text-main); }
+.now-flag .r { color: #ce2b37; }
+
+/* ===== F1 ASCII SCENE ===== */
+.f1-section-title {
+    text-align: center;
+    font-weight: 600;
+}
+
+.f1-frame {
+    position: relative;
+    border: 1px solid var(--border-main);
+    border-radius: 4px;
+    background: var(--bg-container);
+    padding: 14px 10px;
+    overflow: hidden;
+    transition: border-color 0.3s ease;
+}
+
+.f1-frame:hover {
+    border-color: var(--ferrari-red);
+}
+
+#f1-scene {
+    margin: 0 auto;
+    width: fit-content;
+    max-width: 100%;
+    font-family: "IBM Plex Mono", monospace;
+    white-space: pre;
+    font-weight: 600;
+    color: var(--text-main);
+    cursor: pointer;
+    user-select: none;
+    overflow: hidden;
+}
+
+#f1-scene.f1-glitching {
+    text-shadow: -2px 0 rgba(255, 40, 0, 0.6), 2px 0 rgba(131, 197, 190, 0.6);
+}
+
+#f1-scene .f-red   { color: var(--ferrari-red); text-shadow: 0 0 6px rgba(255, 40, 0, 0.35); }
+#f1-scene .f-yel   { color: var(--ferrari-yellow); }
+#f1-scene .f-tyre  { color: var(--text-main); }
+#f1-scene .f-white { color: var(--text-main); }
+#f1-scene .f-dim   { color: var(--text-dim); opacity: 0.6; }
+#f1-scene .f-green { color: var(--f-green); }
+#f1-scene .f-glitch { color: var(--f-glitch); }
+#f1-scene .f-light { text-shadow: 0 0 8px var(--ferrari-red), 0 0 14px var(--ferrari-red); }
+
+.f1-hint {
+    text-align: center;
+    font-size: 0.75em;
+    color: var(--text-dim);
+    margin-top: 8px;
+    letter-spacing: 0.1em;
+}

@@ -332,3 +332,7 @@
 .whoami-loc {
     margin-top: 0.5rem;
 }
+
+.whoami-loc .nowrap {
+    white-space: nowrap;
+}
